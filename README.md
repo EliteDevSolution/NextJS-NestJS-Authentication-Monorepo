@@ -1,81 +1,49 @@
-# Turborepo starter
+# NextJS and NestJS Full Authentication Monorepo
 
-This is an official starter Turborepo.
+This monorepo project demonstrates a comprehensive authentication system using **NestJS** as the backend and **Next.js** as the frontend. The project utilizes PostgreSQL with Prisma ORM, providing secure login and sign-up features, JWT-based authentication, Google OAuth integration, role-based access control, session management, and more.
 
-## Using this example
+## Features
 
-Run the following command:
+### NestJS Backend
 
-```sh
-npx create-turbo@latest
-```
+- **Sign Up**: New user registration.
+- **PostgreSQL DB with Prisma**: Database layer using PostgreSQL and Prisma ORM for efficient data management.
+- **Sign-In with Username and Password**: Secure user login using hashed passwords.
+- **Google OAuth 2.0**: OAuth integration for Google sign-in.
+- **JWT Protection**: Secure APIs with JSON Web Tokens for authentication.
+- **Refresh and Revoke Tokens**: Token lifecycle management to maintain security.
+- **Role-Based Access Control (RBAC)**: Define user roles and permissions for controlled access.
+- **Public and Protected Routes**: Separate routes for authorized and unauthorized users.
+- **NestJS Configuration**: Configurable settings for a flexible backend setup.
 
-## What's inside?
+### Next.js Frontend
 
-This Turborepo includes the following packages/apps:
+- **Sign-Up Form**: Registration form for new users.
+- **Sign-In Form**: User login form.
+- **useFormState**: State management for form handling.
+- **Sessions Management**: Track and update user sessions.
+- **Protected Pages**: Restrict pages based on authentication.
+- **Middleware for Route Protection**: Middleware integration for role-based and route protection.
+- **Role-Based Access Control**: Access control across frontend pages.
 
-### Apps and Packages
+## Technology Stack
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- **Backend**: NestJS, Prisma, PostgreSQL, JWT, Google OAuth 2.0
+- **Frontend**: Next.js, TypeScript, Tailwind CSS
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## Getting Started
 
-### Utilities
+### Prerequisites
 
-This Turborepo has some additional tools already setup for you:
+- Node.js
+- PostgreSQL
+- Prisma CLI
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+## Usage
 
-### Build
+- Navigate to the sign-up and sign-in pages to test the authentication process.
+- Protected routes and pages are restricted based on user roles.
 
-To build all apps and packages, run the following command:
+## License
 
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+This project is licensed under the MIT License.

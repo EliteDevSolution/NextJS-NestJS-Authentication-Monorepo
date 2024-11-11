@@ -1,5 +1,5 @@
 {
-  "name": "NextJS  NestJS Full Authentication Monorepo",
+  "name": "nextjs-and-nestjs-full-authentication-monorepo",
   "private": true,
   "scripts": {
     "build": "turbo build",
