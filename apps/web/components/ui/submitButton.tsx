@@ -6,7 +6,7 @@ const SubmitButton = ({ children }: PropsWithChildren) => {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" disabled={pending} aria-disabled={pending}>
-      Submit
+      {children}
     </Button>
   );
 };
