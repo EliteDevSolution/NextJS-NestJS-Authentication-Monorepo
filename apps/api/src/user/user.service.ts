@@ -24,10 +24,10 @@ export class UserService {
       where: {
         email,
       },
-    }); 
+    });
   }
-  async findOne(userId: number) {
-    return await this.prisma.user.findUnique({
+  findOne(userId: number) {
+    return this.prisma.user.findUnique({
       where: {
         id: userId,
       },
