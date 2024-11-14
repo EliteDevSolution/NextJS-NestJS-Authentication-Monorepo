@@ -11,7 +11,7 @@ export class AuthController {
     return this.authService.registerUser(createUserDto);
   }
 
-  @Post('signip')
+  @Post('signin')
   login(@Body() createUserDto: CreateUserDto) {
     return this.authService.registerUser(createUserDto);
   }
