@@ -10,4 +10,9 @@ export class AuthController {
   registerUser(@Body() createUserDto: CreateUserDto) {
     return this.authService.registerUser(createUserDto);
   }
+
+  @Post('signip')
+  login(@Body() createUserDto: CreateUserDto) {
+    return this.authService.registerUser(createUserDto);
+  }
 }

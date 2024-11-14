@@ -13,12 +13,15 @@ export const signup = async (
   state: FormState,
   formData: FormData
 ): Promise<FormState> => {
-  const validationFields = SignupFormSchema.safeParse(formData);
+  const formDataObject = Object.fromEntries(formData.entries());
+  const validationFields = SignupFormSchema.safeParse(formDataObject);
+
   if (!validationFields.success) {
     return {
       error: validationFields.error.flatten().fieldErrors,
     };
   }
+  console.log(validationFields.error);
 
   const response = await fetch(`${BACKEND_URL}/auth/signup`, {
     method: "POST",
@@ -27,6 +30,8 @@ export const signup = async (
     },
     body: JSON.stringify(validationFields.data),
   });
+  console.log(response.status);
+
   if (response.ok) {
     redirect("/auth/signin");
   } else {
