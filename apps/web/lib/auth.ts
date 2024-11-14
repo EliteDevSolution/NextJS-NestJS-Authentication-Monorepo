@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { BACKEND_URL } from "./constants";
-import { FormState, SignupFormSchema } from "./type";
+import { FormState, LoginFormSchema, SignupFormSchema } from "./type";
 
 // export const signup = validatedAction(
 //   SignupFormSchema,
@@ -21,7 +21,6 @@ export const signup = async (
       error: validationFields.error.flatten().fieldErrors,
     };
   }
-  console.log(validationFields.error);
 
   const response = await fetch(`${BACKEND_URL}/auth/signup`, {
     method: "POST",
@@ -30,7 +29,6 @@ export const signup = async (
     },
     body: JSON.stringify(validationFields.data),
   });
-  console.log(response.status);
 
   if (response.ok) {
     redirect("/auth/signin");
@@ -40,6 +38,41 @@ export const signup = async (
         response.status === 409
           ? "The user is already existed!"
           : response.statusText,
+    };
+  }
+};
+
+export const signIn = async (
+  state: FormState,
+  formData: FormData
+): Promise<FormState> => {
+  const formDataObject = Object.fromEntries(formData.entries());
+  const validationFields = LoginFormSchema.safeParse(formDataObject);
+
+  if (!validationFields.success) {
+    return {
+      error: validationFields.error.flatten().fieldErrors,
+    };
+  }
+
+  const response = await fetch(`${BACKEND_URL}/auth/signin`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(validationFields.data),
+  });
+
+  if (response.ok) {
+    const result = await response.json();
+    //Todo: create session
+    console.log({ result });
+
+    // redirect("/");
+  } else {
+    return {
+      message:
+        response.status === 401 ? "Invalid credentials!" : response.statusText,
     };
   }
 };
